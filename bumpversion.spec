@@ -1,14 +1,14 @@
-Name:           bumpversion
+%global ghuser peritus
 
+Name:           bumpversion
 Version:        0.5.3
-Release:        1%{?dist}
-Summary:        Version-bump your software with a single command!
+Release:        2%{?dist}
+Summary:        Version-bump your software with a single command
 
 Group:          Development/Tools
 License:        MIT
-URL:            https://github.com/peritus/bumpversion
-Source0:        https://pypi.python.org/packages/source/b/%{name}/%{name}-%{version}.tar.gz
-Source1:        https://raw.githubusercontent.com/peritus/bumpversion/v0.5.3/LICENSE.rst
+URL:            https://github.com/%{ghuser}/%{name}
+Source0:        http://github.srcurl.net/%{ghuser}/%{name}/v%{version}/%{name}-%{version}.tar.gz
 
 BuildArch:      noarch
 BuildRequires:  python3-devel
@@ -27,10 +27,6 @@ commits and tags:
 %prep
 %setup -q
 
-# copy LICENSE.rst, which is not part of the distribution tarball
-# it will be included in future versions
-test -e LICENSE.rst || cp %{SOURCE1} LICENSE.rst
-
 
 %build
 %{__python3} setup.py build
@@ -47,8 +43,14 @@ test -e LICENSE.rst || cp %{SOURCE1} LICENSE.rst
 %dir %{python3_sitelib}/%{name}
 %{python3_sitelib}/%{name}/__init__.py*
 %{python3_sitelib}/%{name}-%{version}-*.egg-info
+%dir %{python3_sitelib}/%{name}/__pycache__
+%{python3_sitelib}/%{name}/__pycache__/__init__.*.py[co]
 
 
 %changelog
+* Tue Dec  1 2015 Jakub Dorňák <jdornak@redhat.com> - 0.5.3-2
+- Remove exclamation mark from summary
+- Use tarball from git, which contains LICENSE.rst
+
 * Fri Jul  3 2015 Jakub Dorňák <jdornak@redhat.com> - 0.5.3-1
 - Initial package
