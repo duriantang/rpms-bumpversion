@@ -2,7 +2,7 @@
 
 Name:           bumpversion
 Version:        0.5.3
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Version-bump your software with a single command
 
 Group:          Development/Tools
@@ -48,6 +48,9 @@ commits and tags:
 
 
 %changelog
+* Wed Feb 03 2016 Fedora Release Engineering <releng@fedoraproject.org> - 0.5.3-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_24_Mass_Rebuild
+
 * Tue Dec  1 2015 Jakub Dorňák <jdornak@redhat.com> - 0.5.3-2
 - Remove exclamation mark from summary
 - Use tarball from git, which contains LICENSE.rst
