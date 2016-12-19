@@ -2,7 +2,7 @@
 
 Name:           bumpversion
 Version:        0.5.3
-Release:        4%{?dist}
+Release:        5%{?dist}
 Summary:        Version-bump your software with a single command
 
 Group:          Development/Tools
@@ -48,6 +48,9 @@ commits and tags:
 
 
 %changelog
+* Mon Dec 19 2016 Miro Hrončok <mhroncok@redhat.com> - 0.5.3-5
+- Rebuild for Python 3.6
+
 * Tue Jul 19 2016 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 0.5.3-4
 - https://fedoraproject.org/wiki/Changes/Automatic_Provides_for_Python_RPM_Packages
 
