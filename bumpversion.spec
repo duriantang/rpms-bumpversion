@@ -1,14 +1,15 @@
-%global ghuser peritus
+%global ghuser c4urself
+%global ghname bump2version
 
 Name:           bumpversion
-Version:        0.5.3
-Release:        7%{?dist}
+Version:        0.5.5
+Release:        1%{?dist}
 Summary:        Version-bump your software with a single command
 
 Group:          Development/Tools
 License:        MIT
-URL:            https://github.com/%{ghuser}/%{name}
-Source0:        http://github.srcurl.net/%{ghuser}/%{name}/v%{version}/%{name}-%{version}.tar.gz
+URL:            https://github.com/%{ghuser}/%{ghname}
+Source0:        https://github.srcurl.net/%{ghuser}/%{ghname}/v%{version}/%{ghname}-%{version}.tar.gz
 
 BuildArch:      noarch
 BuildRequires:  python3-devel
@@ -25,7 +26,7 @@ commits and tags:
 
 
 %prep
-%setup -q
+%setup -q -n %{ghname}-%{version}
 
 
 %build
@@ -34,6 +35,7 @@ commits and tags:
 
 %install
 %{__python3} setup.py install --skip-build --root %{buildroot}
+mv %{buildroot}%{_bindir}/%{ghname} %{buildroot}%{_bindir}/%{name}
 
 
 %files
@@ -41,13 +43,18 @@ commits and tags:
 %license LICENSE.rst
 %attr(0755,root,root) %{_bindir}/%{name}
 %dir %{python3_sitelib}/%{name}
-%{python3_sitelib}/%{name}/__init__.py*
-%{python3_sitelib}/%{name}-%{version}-*.egg-info
+%{python3_sitelib}/%{name}/*.py
+%{python3_sitelib}/%{ghname}-%{version}-*.egg-info
 %dir %{python3_sitelib}/%{name}/__pycache__
-%{python3_sitelib}/%{name}/__pycache__/__init__.*.py[co]
+%{python3_sitelib}/%{name}/__pycache__/*.py[co]
 
 
 %changelog
+* Mon Jul 31 2017 Jakub Dorňák <jakub.dornak@misli.cz> - 0.5.5-1
+- temporarily switched upstream to https://github.com/c4urself/bump2version
+  since the development of https://github.com/peritus/bumpversion has been stuck
+- update to version 0.5.5 (which among other features creates annotated tags)
+
 * Wed Jul 26 2017 Fedora Release Engineering <releng@fedoraproject.org> - 0.5.3-7
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_27_Mass_Rebuild
 
