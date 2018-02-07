@@ -3,7 +3,7 @@
 
 Name:           bumpversion
 Version:        0.5.5
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Version-bump your software with a single command
 
 Group:          Development/Tools
@@ -50,6 +50,9 @@ mv %{buildroot}%{_bindir}/%{ghname} %{buildroot}%{_bindir}/%{name}
 
 
 %changelog
+* Wed Feb 07 2018 Fedora Release Engineering <releng@fedoraproject.org> - 0.5.5-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_28_Mass_Rebuild
+
 * Mon Jul 31 2017 Jakub Dorňák <jakub.dornak@misli.cz> - 0.5.5-1
 - temporarily switched upstream to https://github.com/c4urself/bump2version
   since the development of https://github.com/peritus/bumpversion has been stuck
