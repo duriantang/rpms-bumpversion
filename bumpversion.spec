@@ -2,7 +2,7 @@
 %global ghname bump2version
 
 Name:           bumpversion
-Version:        0.5.5
+Version:        0.5.6
 Release:        2%{?dist}
 Summary:        Version-bump your software with a single command
 
