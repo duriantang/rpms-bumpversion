@@ -2,7 +2,7 @@
 %global ghname bump2version
 
 Name:           bumpversion
-Version:        0.5.7
+Version:        0.5.8
 Release:        2%{?dist}
 Summary:        Version-bump your software with a single command
 
@@ -39,7 +39,7 @@ mv %{buildroot}%{_bindir}/%{ghname} %{buildroot}%{_bindir}/%{name}
 
 
 %files
-%doc README.rst
+%doc README.md
 %license LICENSE.rst
 %attr(0755,root,root) %{_bindir}/%{name}
 %dir %{python3_sitelib}/%{name}
